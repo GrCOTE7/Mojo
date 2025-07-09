@@ -1,6 +1,6 @@
 # Mojo - Installation
 
-## 2 Si projet non Mojo: VIRTUALENV suffit
+## 1. Si projet non Mojo: VIRTUALENV suffit
 
 ### Crée l'environement virtuel
 
@@ -45,8 +45,22 @@ Et si ça ne marche pas:
 py tools/get-pip.py
 ```
 
-## Pour MOJO (Linux ou WSL)
+### Si juste flet pour avoir le hot-reload
 
+```bash
+flet run -r
+```
+
+### Divers tips
+
+* Installer un 'vieux' python dans une venv
+
+```bash
+virtualenv .venv --python="D:\chemin\vers\python310\python.exe"
+```
+
+
+## 2. Pour MOJO (Linux ou WSL) - Remplace Virtualenv
 
 ### Installe pixi:
 
@@ -72,22 +86,8 @@ pixi shell # Entre dans l'environnement & deactivate pour en sortir
 pixi add moduleName
 ```
 
-## 4. Exécute le programme avec hot-leload
+### Exécute le programme avec hot-leload
 
 ```bash
 ls *.mojo | entr -r pixi run mojo run hello.mojo
-```
-
-### Si juste flet
-
-```bash
-flet run -r
-```
-
-## Divers tips
-
-* Installer un 'vieux' python dans une venv
-
-```bash
-virtualenv .venv --python="D:\chemin\vers\python310\python.exe"
 ```
