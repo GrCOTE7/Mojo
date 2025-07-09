@@ -102,17 +102,32 @@ pixi add moduleName
 
 ```bash
 ls *.mojo | entr -r pixi run mojo run main.mojo
+ou :
+entr -r pixi run mojo run main.mojo
 ```
 Si ajoutée dans pixi.toml:
 ```toml
 [tasks]
-main = 'ls *.mojo | entr -r pixi run mojo run main.mojo'
+main = 'entr -r pixi run mojo run main.mojo'
+list_all = 'ls *.mojo | entr -r pixi run mojo run main.mojo'
 ```
 
+Penser, si dans sous dossier:
+```toml
+main = 'find . -name "*.mojo" | entr -r pixi run mojo run main.mojo'
+```
 alors, pour avoir du mojo avec Hot-reload:
 
 ```bash
 pixi run main
 (CTRL + C pour 'breaker')
 ```
+Ou, avec un 'simple' fichier run_main.sh:
 
+```bash
+#!/bin/bash
+find . -name "*.mojo" | entr -r pixi run mojo run main.mojo
+
+PUIS:
+sh run run_main.sh
+```

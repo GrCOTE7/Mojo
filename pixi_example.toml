@@ -1,0 +1,23 @@
+[project]
+name = "mojo-projet"
+channels = ["https://conda.modular.com/max-nightly/", "conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+modular = "*"
+
+[tool.pixi.tasks]
+# 🔁 Hot-reload : relance automatiquement main.mojo à chaque modification
+watch = 'find . -name "*.mojo" | entr -r pixi run mojo run main.mojo'
+
+# ▶️ Exécution manuelle
+run = 'pixi run mojo run main.mojo'
+
+# 🧹 Nettoyage (à adapter selon ton projet)
+clean = 'rm -rf __pycache__ *.o *.ll *.s'
+
+# 🛠️ Compilation (si tu veux compiler sans exécuter)
+build = 'pixi run mojo build main.mojo -o main.o'
+
+# 🧪 Test (si tu ajoutes des tests plus tard)
+test = 'echo "Pas encore de tests 😅"'

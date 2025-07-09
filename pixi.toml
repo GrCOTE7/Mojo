@@ -7,6 +7,8 @@ version = "0.1.0"
 
 [tasks]
 main = 'ls *.mojo | entr -r pixi run mojo run main.mojo'
+list_all = 'ls -l *.mojo'
+# pymojo = 'ls *.py | entr -r pixi run python3 pymojo.py'
 
 [dependencies]
 modular = ">=25.5.0.dev2025070905,<26"
