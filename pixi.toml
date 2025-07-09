@@ -1,7 +1,7 @@
 [workspace]
 authors = ["GrCOTE7 <grcote7@gmail.com>"]
-channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
-name = "Mojo"
+channels = ["https://github.com/GrCOTE7/Mojo"]
+name = "GrCOTE7/Mojo"
 platforms = ["linux-64"]
 version = "0.1.0"
 

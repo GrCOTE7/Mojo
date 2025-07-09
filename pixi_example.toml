@@ -1,3 +1,10 @@
+[workspace]
+authors = ["GrCOTE7 <grcote7@gmail.com>"]
+channels = ["https://github.com/GrCOTE7/Mojo"]
+name = "GrCOTE7/Mojo"
+platforms = ["linux-64"]
+version = "0.1.0"
+
 [project]
 name = "mojo-projet"
 channels = ["https://conda.modular.com/max-nightly/", "conda-forge"]
@@ -13,11 +20,11 @@ watch = 'find . -name "*.mojo" | entr -r pixi run mojo run main.mojo'
 # ▶️ Exécution manuelle
 run = 'pixi run mojo run main.mojo'
 
-# 🧹 Nettoyage (à adapter selon ton projet)
+# 🧹 Nettoyage (à adapter selon projet)
 clean = 'rm -rf __pycache__ *.o *.ll *.s'
 
-# 🛠️ Compilation (si tu veux compiler sans exécuter)
+# 🛠️ Compilation (si compile sans exécuter)
 build = 'pixi run mojo build main.mojo -o main.o'
 
-# 🧪 Test (si tu ajoutes des tests plus tard)
+# 🧪 Test (si des tests plus tard)
 test = 'echo "Pas encore de tests 😅"'
