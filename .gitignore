@@ -3,3 +3,5 @@
 __pycache__
 storage
 apps/count/n.txt
+# pixi environments
+.pixi

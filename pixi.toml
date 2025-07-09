@@ -1,0 +1,12 @@
+[workspace]
+authors = ["GrCOTE7 <grcote7@gmail.com>"]
+channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+name = "Mojo"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+main = 'ls *.mojo | entr -r pixi run mojo run main.mojo'
+
+[dependencies]
+modular = ">=25.5.0.dev2025070905,<26"

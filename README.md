@@ -65,7 +65,9 @@ virtualenv .venv --python="D:\chemin\vers\python310\python.exe"
 
 ```bash
 curl -fsSL https://pixi.sh/install.sh | bash
+
 export PATH="$HOME/.pixi/bin:$PATH"
+
 source ~/.bashrc
 
 pixi --version
@@ -76,6 +78,14 @@ pixi shell # Entre dans l'environnement & deactivate pour en sortir
 ### Puis créee le projet Mojo:
 
 ```bash
+pixi init . \
+  -c https://conda.modular.com/max-nightly/ \
+  -c conda-forge
+pixi add modular
+pixi run mojo --version
+
+OU, pour générer un projet dans un dossier spécifique ('mojo-projet'):
+
 pixi init mojo-projet \
   -c https://conda.modular.com/max-nightly/ \
   -c conda-forge
@@ -83,11 +93,26 @@ cd mojo-projet
 pixi add modular
 pixi run mojo --version
 
+
+
 pixi add moduleName
 ```
 
 ### Exécute le programme avec hot-leload
 
 ```bash
-ls *.mojo | entr -r pixi run mojo run hello.mojo
+ls *.mojo | entr -r pixi run mojo run main.mojo
 ```
+Si ajoutée dans pixi.toml:
+```toml
+[tasks]
+main = 'ls *.mojo | entr -r pixi run mojo run main.mojo'
+```
+
+alors, pour avoir du mojo avec Hot-reload:
+
+```bash
+pixi run main
+(CTRL + C pour 'breaker')
+```
+
