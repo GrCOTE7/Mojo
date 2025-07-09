@@ -42,7 +42,7 @@ python -m pip install --upgrade pip
 Et si ça ne marche pas:
 
 ```bash
-py tools/get-pip.py
+py tools/get-pip_basic.py
 ```
 
 ### Si juste flet pour avoir le hot-reload
@@ -59,7 +59,6 @@ flet run -r
 virtualenv .venv --python="D:\chemin\vers\python310\python.exe"
 ```
 
-
 ## 2. Pour MOJO (Linux ou WSL) - Remplace Virtualenv
 
 ### Installe pixi:
@@ -70,6 +69,8 @@ export PATH="$HOME/.pixi/bin:$PATH"
 source ~/.bashrc
 
 pixi --version
+
+pixi shell # Entre dans l'environnement & deactivate pour en sortir
 ```
 
 ### Puis créee le projet Mojo:
@@ -81,7 +82,6 @@ pixi init mojo-projet \
 cd mojo-projet
 pixi add modular
 pixi run mojo --version
-pixi shell # Entre dans l'environnement & deactivate pour en sortir
 
 pixi add moduleName
 ```
