@@ -1,5 +1,5 @@
-import tools.gc7 as gc7, os, subprocess, time
-from tools.gc7 import EC, EW, ER, EN  # En Cyan, Rouge, En Normal
+import tools.gc7_024 as gc7, os, subprocess, time
+from tools.gc7_024 import EC, EW, ER, EN  # En Cyan, Rouge, En Normal
 
 
 @gc7.chrono
@@ -12,7 +12,7 @@ def run_script(lang):
 
 
 langs = ["python", "mojo"]
-for n in [7, 77_777, 1e7, 2.7773e7, 1e8, 1e11, 1e12][:5]:  # [:5] pour test
+for n in [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e12][:6]:  # [:5] pour test
     with open("apps/count/n.txt", "w") as f:
         f.write(str(int(n)))
     time.sleep(1)
