@@ -136,3 +136,5 @@ sh run run_main.sh
 * pixi add --pypi flet[all]==0.28.3
 * pixi remove flet
 * python -c "import flet; print(flet.version.version)"
+* mojo build .source/fichier.mojo -o destination/fichier
+* Ensuite, appeler le build avec: ./destination/fichier
