@@ -51,15 +51,18 @@ def nf_ori(f, dec=2):
 def flet_window_position(page):
     page.theme_mode = "dark"
     screen_width = 1920 # 1920
-    window_width = 520 # 520
+    window_width = 1920 # 520
     page.window.top = 3
-    page.window.left = screen_width - window_width
-    page.window.height = 1005 # 1005
+    # page.window.left = screen_width - window_width
+    page.window.left = 0
+    page.window.height = 505 # 1005
     page.window.width = window_width - 15
+    page.window.width = 100
     page.window.resizable = False
-    page.update()
+    # page.update()
 
-def themed_border_color(dark: bool) -> ft.colors:
+
+def themed_border_color(dark: bool) -> ft.Colors:
     return ft.colors(141, 145, 153) if dark else ft.colors(115, 119, 127)
 
 

@@ -16,7 +16,7 @@ def run_script(lang):
 
 
 langs = ["python", "mojo"]
-for n in [2e7]:  # [:5] pour test
+for n in [2e6]:  # [:5] pour test
     with open("apps/count/n.txt", "w") as f:
         f.write(str(int(n)))
     time.sleep(1)

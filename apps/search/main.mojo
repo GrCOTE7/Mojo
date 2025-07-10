@@ -1,7 +1,7 @@
-from time import time
+from datetime import now
+from collections import List
 
-
-def binary_search(arr, x):
+def binary_search(arr : List[Int32], x : Int32) -> Int32:
     low = 0
     high = len(arr) - 1
     mid = 0
@@ -22,20 +22,17 @@ def binary_search(arr, x):
 def main():
     n = 1_000_000
 
-    arr = []
+    arr = List[Int32]()
     for i in range(n):
         arr.append(i)
 
-    results = []
+    results = List[Int32]()
 
-    t = time()
+    t = now()
 
     for i in range(n):
         results.append(binary_search(arr, i))
 
-    print((time() - t) * 1000, "ms")
+    print((now() - t) / 1e6, "ms")
 
     print("Results: ", len(results))
-
-
-main()

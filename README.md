@@ -131,3 +131,8 @@ find . -name "*.mojo" | entr -r pixi run mojo run main.mojo
 PUIS:
 sh run run_main.sh
 ```
+
+* pixi add flet=0.28 # Échoue si flet 0.28 pas encore dans conda-forge
+* pixi add --pypi flet[all]==0.28.3
+* pixi remove flet
+* python -c "import flet; print(flet.version.version)"

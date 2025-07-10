@@ -57,7 +57,7 @@ def flet_window_position(page):
     page.window.height = 1005 # 1005
     page.window.width = window_width - 15
     page.window.resizable = False
-    page.update()
+    # page.update()
 
 def themed_border_color(dark: bool) -> ft.Colors:
     return ft.Colors(141, 145, 153) if dark else ft.Colors(115, 119, 127)

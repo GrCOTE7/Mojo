@@ -1,5 +1,5 @@
 import numpy as np
-import time, tools.gc7 as gc7
+import time, tools.gc7_024 as gc7
 
 
 a = np.random.rand(10_000_000)

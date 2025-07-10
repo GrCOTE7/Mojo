@@ -4,6 +4,7 @@ from time import time
 from tools.gc7 import EC, EW, ER, EN
 
 def app(page: ft.Page):
+    page.title='Flet App'
     gc7.flet_window_position(page)
     
     txt = "Ready."

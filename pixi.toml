@@ -12,4 +12,6 @@ list_all = 'ls -l *.mojo'
 
 [dependencies]
 modular = ">=25.5.0.dev2025070905,<26"
-flet = ">=0.24.1,<0.25"
+
+[pypi-dependencies]
+flet = { version = "==0.28.3", extras = ["all"] }
