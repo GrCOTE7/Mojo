@@ -1,11 +1,12 @@
 import subprocess
 import time
 from pathlib import Path
+import tools.gc7 as gc7
 
 # Configuration
 langs = ["python", "mojo", "cpp"] # Langages testés
 script_dir = Path("apps/count") # Dossier contenant les scripts à chronométrer
-nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11]  # valeurs de tests
+nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12]  # valeurs de tests
 
 results = []
 # Fonction de benchmark
@@ -44,17 +45,21 @@ for nb in nb_values:
         else:
             duration = run_script(lang, nb)
             row[lang] = f"{duration:.2f}"
+        
+        print (f"{lang.capitalize()} {row[lang]:>6} | ", end='') 
+        
     results.append(row)
+    print(f"{gc7.nf(nb,0):>16} / {gc7.nf(nb_values[-1],0):>17}")
 
 # Affichage du tableau
 print("\n📊 Résultats du benchmark (Tps en secondes) :\n")
-header = f"{'n':^15} | {'Python':^7} | {'Mojo':^7} | {'C++':^7}"
+header = f"{'n':^19} | {'Python':^7} | {'Mojo':^7} | {'C++':^7}"
 print(header)
 print("-" * (len(header)+1))
 
 for row in results:
     nb = f"{row['nb']:,}".replace(",", " ")
     py, mj, cp = [row[i] for i in langs]
-    print(f"{nb:>15} | {py:>7} | {mj:>7} | {cp:>7}")
+    print(f"{nb:>17} | {py:>7} | {mj:>7} | {cp:>7}")
 
 print("\n✅ Fini à", time.strftime("%H:%M:%S"))
