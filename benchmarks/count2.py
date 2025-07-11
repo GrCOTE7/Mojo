@@ -6,10 +6,12 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 import tools.gc7 as gc7
 from tools.gc7 import EC, EW, ER, EN  # En Cyan, Rouge, En Normal
 
+# Py VS Mojo VS C++ (Nb itérations transmis par fichier)
+
 # Configuration
 langs = ["python", "mojo", "cpp"] # Langages testés
 script_dir = Path("langages1/count") # Dossier contenant les scripts à chronométrer
-nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12][:-3]  # valeurs de tests
+nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12]# [:-1]  # valeurs de tests
 
 results = []
 # Fonction de benchmark
@@ -38,12 +40,13 @@ def run_script(lang, n):
 
     return end - start
 
+
 # Lancement des benchmarks
 no_tested = '-' + ' '*2
 for nb in nb_values:
     row = {"nb": int(nb)}
     for lang in langs:
-        if lang == "python" and nb > 1e10: # 1e10
+        if lang == "python" and nb > 1e9: # 1e10
             row[lang] = no_tested
         else:
             duration = run_script(lang, nb)
