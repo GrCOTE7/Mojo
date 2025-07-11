@@ -122,14 +122,27 @@ alors, pour avoir du mojo avec Hot-reload:
 pixi run main
 (CTRL + C pour 'breaker')
 ```
-Ou, avec un 'simple' fichier run_main.sh:
+Ou, avec un 'simple' fichier run.sh:
 
 ```bash
 #!/bin/bash
 find . -name "*.mojo" | entr -r pixi run mojo run main.mojo
 
+OU pour indiquer la cible en argument:
+
+#!/bin/bash
+TARGET=${1:-main.mojo}
+echo "🚀 Lancement de $TARGET avec surveillance des fichiers .mojo"
+find . -name "*.mojo" | entr -r pixi run mojo run "$TARGET"
+
 PUIS:
-sh run run_main.sh
+run fichier.mojo
+
+Pour COMPILER:
+mojo build fichier.mojo
+OU:
+mojo build fichier.mojo [-o dossier/fichier]
+
 ```
 
 * pixi add flet=0.28 # Échoue si flet 0.28 pas encore dans conda-forge

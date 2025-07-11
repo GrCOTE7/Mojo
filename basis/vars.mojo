@@ -41,7 +41,7 @@ def game():
         [0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0],
     ]
-    
+
     rep = String()
     rep += grid_str(num_rows, num_cols, glider)
     print(rep)
@@ -69,6 +69,6 @@ def main():
     var age: Int = 47
     var greeting = "Hi, You!"
     print(greeting, age)
-    print ('-'*77)
-    
+    print("-" * 77)
+
     game()
