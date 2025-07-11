@@ -11,9 +11,7 @@ from tools.gc7 import EC, EW, ER, EN  # En Cyan, Rouge, En Normal
 # Configuration
 langs = ["python", "mojo", "cpp", "rust"]  # Langages testés
 script_dir = Path("langages1/count")  # Dossier contenant les scripts à chronométrer
-nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12][
-    :-3
-]  # valeurs de tests
+nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12][:-1] # valeurs de tests
 
 results = []
 # Fonction de benchmark
@@ -50,11 +48,6 @@ def run_script(lang, n):
     src = script_dir / lang_data["src"]
     exe = script_dir / lang_data.get("exe", "") if lang_data.get("exe") else None
 
-    # 📝 Préparer n.txt
-    with open(script_dir / "n.txt", "w") as f:
-        f.write(str(int(n)))
-    time.sleep(0.5)
-
     # 🔧 Compilation si nécessaire
     if exe:
         if not exe.exists() or os.path.getmtime(exe) < os.path.getmtime(src):
@@ -62,7 +55,10 @@ def run_script(lang, n):
 
     # 🚀 Lancement
     start = time.time()
+    # Pour ne pas avoir les sorties des subprocesses:
     subprocess.run(lang_data["run"](src, exe), stdout=subprocess.DEVNULL)
+    # Pour avoir la sortie des subprocesses:
+    # subprocess.run(lang_data["run"](src, exe))
     end = time.time()
 
     return end - start
@@ -76,6 +72,11 @@ def run_script(lang, n):
 
 # Lancement des benchmarks
 no_tested = "-" + " " * 2
+
+n_path = script_dir / "n.txt"
+if n_path.exists():
+    n_path.unlink()
+
 for nb in nb_values:
     row = {"nb": int(nb)}
 
@@ -84,7 +85,7 @@ for nb in nb_values:
 
     time.sleep(0.5)  # Laisse le temps au fichier d'être écrit
     for lang in langs:
-        if lang == "python" and nb > 1e9:  # 1e10
+        if lang == "python" and nb > 1e7:  # 1e10
             row[lang] = no_tested
         else:
             duration = run_script(lang, nb)
@@ -97,7 +98,7 @@ for nb in nb_values:
 
 # Affichage du tableau
 print("\n📊 Résultats du benchmark (Tps en secondes) :\n")
-header = f"{'n':^19} | {'Python':^7} | {'Mojo':^7} | {'C++':^7} | {'RustC':^7}"
+header = f"{'n':^17} | {'Python':^7} | {'Mojo':^7} | {'C++':^7} | {'RustC':^7}"
 print(header)
 print("-" * (len(header) + 1))
 

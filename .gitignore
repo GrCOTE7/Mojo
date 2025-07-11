@@ -6,3 +6,6 @@ storage
 .pixi
 
 benchmarks/langages1/count/n.txt
+benchmarks/langages1/count/n_mojo
+benchmarks/langages1/count/n_cpp
+benchmarks/langages1/count/n_rs
