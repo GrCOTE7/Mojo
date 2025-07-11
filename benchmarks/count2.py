@@ -1,12 +1,15 @@
-import subprocess
-import time
 from pathlib import Path
+import os, subprocess, sys, time
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import tools.gc7 as gc7
+from tools.gc7 import EC, EW, ER, EN  # En Cyan, Rouge, En Normal
 
 # Configuration
 langs = ["python", "mojo", "cpp"] # Langages testés
-script_dir = Path("apps/count") # Dossier contenant les scripts à chronométrer
-nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12]  # valeurs de tests
+script_dir = Path("langages1/count") # Dossier contenant les scripts à chronométrer
+nb_values = [7, 77_777, 1e7, 2.7773e7, 1e8, 1e9, 1e10, 1e11, 1e12][:-3]  # valeurs de tests
 
 results = []
 # Fonction de benchmark

@@ -2,7 +2,7 @@
 #include <fstream>
 
 int main() {
-    std::ifstream file("apps/count/n.txt");
+    std::ifstream file("langages1/count/n.txt");
     long long n;
     file >> n;
 
