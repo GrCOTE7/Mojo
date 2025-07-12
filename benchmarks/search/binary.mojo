@@ -1,10 +1,10 @@
-from datetime import now
+from time import perf_counter_ns as top
 from collections import List
 
-def binary_search(arr : List[Int32], x : Int32) -> Int32:
+
+def binary_search(arr: List[Int32], x: Int32) -> Int32:
     low = 0
     high = len(arr) - 1
-    mid = 0
 
     while low <= high:
         mid = (high + low) // 2
@@ -26,13 +26,11 @@ def main():
     for i in range(n):
         arr.append(i)
 
+    t = top()
+
     results = List[Int32]()
-
-    t = now()
-
     for i in range(n):
         results.append(binary_search(arr, i))
 
-    print((now() - t) / 1e6, "ms")
-
+    print(round((top() - t) / 1e9, 3), "s")
     print("Results: ", len(results))

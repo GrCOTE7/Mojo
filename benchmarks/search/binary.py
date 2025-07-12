@@ -1,10 +1,9 @@
-from time import time
+from time import perf_counter_ns as top
 
 
 def binary_search(arr, x):
     low = 0
     high = len(arr) - 1
-    mid = 0
 
     while low <= high:
         mid = (high + low) // 2
@@ -26,15 +25,13 @@ def main():
     for i in range(n):
         arr.append(i)
 
+    t = top()
+
     results = []
-
-    t = time()
-
     for i in range(n):
         results.append(binary_search(arr, i))
 
-    print((time() - t) * 1000, "ms")
-
+    print(round((top() - t) / 1e9, 3), "s")
     print("Results: ", len(results))
 
 
