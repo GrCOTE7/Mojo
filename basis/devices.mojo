@@ -12,18 +12,24 @@
 # ===----------------------------------------------------------------------=== #
 # RUN: %mojo %s | FileCheck %s
 
-from sys import CompilationTarget
-
-var target = CompilationTarget()  # instanciation
-
-if target.has_avx():
-    print("✅ AVX is supported")
-if target.has_avx2():
-    print("✅ AVX2 is supported")
-if target.has_avx512f():
-    print("✅ AVX512F is supported")
-
-
+from collections.string import StaticString
+from sys import (
+    CompilationTarget,
+    has_avx,
+    has_avx2,
+    has_avx512f,
+    has_intel_amx,
+    has_neon,
+    has_vnni,
+    is_apple_m1,
+    is_apple_m2,
+    is_apple_m3,
+    num_logical_cores,
+    num_physical_cores,
+    os_is_linux,
+    os_is_macos,
+    os_is_windows,
+)
 
 # This sample prints the current host system information using APIs from the
 # sys module.

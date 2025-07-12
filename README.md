@@ -1,5 +1,10 @@
 # Mojo - Installation
 
+## [Doc de référence](https://docs.modular.com/max/get-started/)
+
+* Login → Playground
+
+
 ## 1. Si projet non Mojo: VIRTUALENV suffit
 
 ### Crée l'environement virtuel
