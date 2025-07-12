@@ -151,3 +151,21 @@ mojo build fichier.mojo [-o dossier/fichier]
 * python -c "import flet; print(flet.version.version)"
 * mojo build .source/fichier.mojo -o destination/fichier
 * Ensuite, appeler le build avec: ./destination/fichier
+
+* Installation magic CLI:
+curl -ssL https://magic.modular.com/4286b230-2a02-43f6-8b99-65ce8397ffb9 | bash
+
+* magic update
+
+* magic init mojo-project
+* cd mojo-project
+* magic add lib
+* magic run mojo --version
+* magic run mojo src/lescript.mojo
+* Possibilité de faire une tâche dans mojoproject.toml:
+* [tasks]
+* ninja = "magic run mojo src/main.mojo"
+* Désactiver le WARNING de cohabitation pixi & mojo:
+* unset PIXI_PROJECT_MANIFEST (Pour la session)
+* Ou définitivement dans le fichier ~/.bashrc:
+* export PIXI_PROJECT_MANIFEST=""

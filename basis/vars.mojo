@@ -11,7 +11,7 @@ def vars():
     # Create a List[Int] with the list literal syntax, inferring the type
     nums = [12, -7, 64]
     nums.append(-937)
-    print("Number of elements in the list:", len(nums))
+    print("\nNumber of elements in the list:", len(nums))
     print("Popping last element off the list:", nums.pop())
     print("First element of the list:", nums[0])
     print("Second element of the list:", nums[1])
@@ -72,3 +72,4 @@ def main():
     print("-" * 77)
 
     game()
+    print("-" * 77)
